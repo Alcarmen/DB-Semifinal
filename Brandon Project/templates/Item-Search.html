@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} Alcarmen-BookStore</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='/CSS/ccs.css') }}">
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            padding: 10px;
+        }
+
+        nav a {
+			display:flex;
+			align-items:center;
+			background-color:#d64161; 
+            color: white;
+            font-size: 16px;
+			justify-content: center;
+			border: 3px ridge #d64161;
+            border-radius: 5px;
+            text-decoration: none;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+			width:100px;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        nav a:hover {
+            background-color:lightblue;
+            color: black;
+        }
+
+        nav a.active {
+            background-color: #04AA6D;
+            color: blue;
+        }
+		nav .icon{
+			font-size: 50px;
+			font-weight: 800;
+			letter-spacing:1px;
+			color: white;
+			background-color: gray;
+			border-radius: 5px;
+			display: flex; 
+			vertical-align: middle;
+            text-shadow: 1px 1px 1px #fff, -1px -1px 1px black, 1px -1px 1px black, 1px 1px 1px #fff;	
+		}
+        hr {
+            background-color: black;
+            width: 100%;
+            text-align: left;
+            margin: 0;
+        }
+        .search-form {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            gap: 5px;
+        }
+
+        .search-label {
+            border-radius: 5px;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            background-color:#d64161; 
+            border: 3px ridge #d64161;
+        }
+
+        .search-input {
+            border: 1px ridge white;
+            width: 150px;
+            border-radius: 10px;
+        }
+
+		body {
+			background-color: rgb(255, 122, 89);
+			margin:0;
+		
+		}
+		
+    </style>
+</head>
+<body>
+	<hr>
+    <nav>
+		<div class="icon"><img src="https://preview.redd.it/drg9991dq9o61.jpg?width=640&crop=smart&auto=webp&s=ea04f9cea8b177cd7a6894cdb8bd2870b557412b" alt="logo" style="width:50px; height:50px;border-radius:30%;border:3px solid gray"><b style="color: black">Br</b>andon b<b style="color:#33CC00">ooK</b></div>
+        <a href="/">Home</a>
+        <a href="/Custom">Customer</a>
+        <a href="/Item">Item</a>
+        <form action="{{ url_for('search_item') }}" method="post" class="search-form">
+            <input type="text" name="item_searched" placeholder="Enter search item" class="search-input">
+            <button type="submit" class="search-label">
+                Search
+            </button>
+        </form>
+		
+    </nav>
+    <hr>
+    <div class="w3-margin">
+        <h2>Search Results:</h2>
+        {% if output %}
+            <table class="w3-table-all w3-card-4 w3-animate-top">
+                <tr>
+                    {% for key, _ in output[0].items() if key != 'active' %}
+                        <th>{{ key | upper }}</th>
+                    {% endfor %}
+                    <th>Actions</th>
+                </tr>
+                {% for outputs in output %}
+                    <tr>
+                        {% for key, value in outputs.items() %}
+                            {% if key != 'active' %}
+                                <td>{{ value | upper }}</td>
+                            {% endif %}
+                        {% endfor %}
+                        <td>
+                            <a href="{{ url_for('update_item', i_id=outputs.get('i_id')) }}" class="w3-button w3-green w3-round-large">Update</a>
+                            <a href="{{ url_for('delete_item', i_id=outputs.get('i_id')) }}" class="w3-button w3-red w3-round-large">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    </div>
+	<div class="w3-margin">
+		{%block content%}
+		{% endblock%}
+	</div>
+    
+</body>
+</html>

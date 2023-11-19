@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} Alcarmen-BookStore</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='/CSS/ccs.css') }}">
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            padding: 10px;
+        }
+
+        nav a {
+			display:flex;
+			align-items:center;
+			background-color:#d64161; 
+            color: white;
+            font-size: 16px;
+			justify-content: center;
+			border: 3px ridge #d64161;
+            border-radius: 5px;
+            text-decoration: none;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+			width:100px;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        nav a:hover {
+            background-color:lightblue;
+            color: black;
+        }
+
+        nav a.active {
+            background-color: #04AA6D;
+            color: blue;
+        }
+		nav .icon{
+			font-size: 50px;
+			font-weight: 800;
+			letter-spacing:1px;
+			color: white;
+			background-color: gray;
+			border-radius: 5px;
+			display: flex; 
+			vertical-align: middle;
+            text-shadow: 1px 1px 1px #fff, -1px -1px 1px black, 1px -1px 1px black, 1px 1px 1px #fff;	
+		}
+        hr {
+            background-color: black;
+            width: 100%;
+            text-align: left;
+            margin: 0;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px; /* Adjust the margin as needed */
+        }
+		.search-bar {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px ridge #d64161;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            background-color: #d64161;
+            color: white;
+            border: 2px ridge #d64161;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 16px;
+        }
+		.search-button active{
+		    background-color: #04AA6D;
+            color: blue;
+		}
+        .search-button:hover {
+            background-color: orange;
+            color: black;
+        }
+
+		body {
+			background: linear-gradient(135deg, hsl(36,100%,50%) 10%, hsl(72,100%,50%) 60%, white 90%);
+			margin:0;
+		}
+		
+    </style>
+</head>
+<body>
+	<hr>
+    <nav>
+		<div class="icon"><img src="https://preview.redd.it/drg9991dq9o61.jpg?width=640&crop=smart&auto=webp&s=ea04f9cea8b177cd7a6894cdb8bd2870b557412b" alt="logo" style="width:50px; height:50px;border-radius:30%;border:3px solid gray"><b style="color: black">Br</b>andon b<b style="color:#33CC00">ooK</b></div>
+        <a href="/">Home</a>
+        <a href="/Custom">Customer</a>
+        <a href="/Item">Item</a>
+		
+    </nav>
+    <hr>
+	<br>
+	<h1 class="w3-animate-top w3-round-large;"style="font-family: Arial black, sans-serif;margin: 0 auto; width: 50%; text-align: center;font-style:Arial; display: flex; flex-direction: column; align-items: center; gap: 10px;" > Input Details </h1>
+	<br>
+	<form method="GET" style="margin: 0 auto; width: 50%; display: flex; flex-direction: column;" class="w3-table-all w3-card-4 w3-animate-top">
+		<h1>Customer has been deleted.</h1>
+		<a href="/Item" style="text-decoration: none;">
+			<button class="w3-button w3-green w3-round-small" style="margin-top: 10px; border: 2px ridge black; border-radius: 20px;">
+				Submit
+			</button>
+		</a>
+	</form>
+
+    <div class="w3-margin">
+        {% block content %}
+		{% endblock %}
+    </div>
+
+</body>
+</html>

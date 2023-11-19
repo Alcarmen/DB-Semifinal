@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} Alcarmen-BookStore</title>
+    <style>
+        body {
+            background-image: url("https://getwallpapers.com/wallpaper/full/4/3/5/165818.jpg");
+            background-size: cover; /* Ensures the image covers the entire body */
+            background-repeat: no-repeat;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            padding: 10px;
+        }
+
+        nav a {
+			display:flex;
+			align-items:center;
+			background-color:#d64161; 
+            color: white;
+            font-size: 16px;
+			justify-content: center;
+			border: 3px ridge #d64161;
+            border-radius: 5px;
+            text-decoration: none;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+			width:100px;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        nav a:hover {
+            background-color:lightblue;
+            color: black;
+        }
+
+        nav a.active {
+            background-color: #04AA6D;
+            color: blue;
+        }
+		nav .icon{
+			font-size: 50px;
+			font-weight: 800;
+			letter-spacing:1px;
+			color: white;
+			background-color: gray;
+			border-radius: 5px;
+			display: flex; 
+			vertical-align: middle;
+            text-shadow: 1px 1px 1px #795050, -1px -1px 1px black, 1px -1px 1px black, 1px 1px 1px #fff;
+		}
+
+
+        hr {
+            background-color: black;
+            width: 100%;
+            text-align: left;
+            margin: 0;
+        }
+
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-in-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 1.5s ease;
+			border: 3px solid black;
+			border-radius: 5px;
+        }
+
+        .slide-in-image:hover {
+            transform: translateX(20px);
+        }
+
+        .slideshow-container button {
+            position: absolute;
+            top: 50%;
+            font-size: 20px;
+            background: white;
+            border: 2px solid #d64161;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+
+        .slideshow-container button:first-child {
+            left: 10px;
+        }
+
+        .slideshow-container button:last-child {
+            right: 10px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px; /* Adjust the margin as needed */
+        }
+
+        .search-bar {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px ridge #d64161;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            background-color: #d64161;
+            color: white;
+            border: 2px ridge #d64161;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 16px;
+        }
+		.search-button active{
+		    background-color: #04AA6D;
+            color: blue;
+		}
+        .search-button:hover {
+            background-color: orange;
+            color: black;
+        }
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px; 
+            margin: 0; 
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <nav>
+		<div class="icon"><img src="https://preview.redd.it/drg9991dq9o61.jpg?width=640&crop=smart&auto=webp&s=ea04f9cea8b177cd7a6894cdb8bd2870b557412b" alt="logo" style="width:50px; height:50px;border-radius:30%;border:3px solid gray"><b style="color: black">Br</b>andon b<b style="color:#33CC00">ooK</b></div>
+        <a href="/">Home</a>
+        <a href="/Custom">Customer</a>
+        <a href="/Item">Item</a>
+        <div class="search-container" style="opacity: 0;">
+            <input type="text" class="search-bar" placeholder="Search...">
+            <button class="search-button">Search</button>
+        </div>
+    </nav>
+
+    <hr>
+    <h1 style="font-size: 50px;text-shadow: 1px 1px 1px #795050, -2px -1px 1px white, 1px -1px 1px black, 1px 1px 1px #fff;">
+        Welcome to
+    </h1>
+    <h1 style="text-align: center;font-size: 60px;font-weight: 100;">
+        <span style="background-color: grey; color: white; border-radius: 5px;border: 1px ridge white; padding: 5px; text-shadow: 1px 1px 1px #795050, -1px -1px 1px black, 1px -1px 1px black, 1px 1px 1px #fff;">
+            <b style="color: black">Br</b>andon's b<b style="color:#33CC00">ooK</b><b> Store!</b>
+        </span>
+    </h1>
+    <h2>
+        <div class="slideshow-container">
+            <button onclick="plusSlides(-1)">❮</button>
+				<img class="slide-in-image" src="https://wallpapercg.com/download/one-piece-4k-3840x2560-10907.jpg" alt="Description of the image">
+				<img class="slide-in-image" src="https://wallpapersmug.com/download/3840x2400/5b5545/artwork-one-piece-monkey-d-luffy.jpg" alt="Description of the image">
+				<img class="slide-in-image" src="https://images4.alphacoders.com/836/836495.jpg" alt="Description of the image">
+            <button onclick="plusSlides(1)">❯</button>
+        </div>
+    </h2>
+
+    <script>
+        let slideIndex = 0;
+
+        function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("slide-in-image");
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slideIndex++;
+
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2000);
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        showSlides();
+    </script>
+
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>

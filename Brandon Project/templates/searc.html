@@ -1,0 +1,28 @@
+{% extends 'Searched.html'%}
+{%block content%}
+    <h2>Search Results:</h2>
+    {% if results %}
+        <ul>
+            {% for result in results %}
+                <li>{{ result }}</li> <!-- Display each result item -->
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+
+    <table class="w3-table-all w3-card-4 w3-animate-top">
+        <tr>
+            {% for h in header %}
+                <th>{{ h | upper }}</th>
+            {% endfor %}
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td>
+                <a href="{{ url_for('update', c_id=students.get('c_id')) }}" class="w3-button w3-green w3-round-large">Update</a>
+                <a href="{{ url_for('delete_cust', c_id=students.get('c_id')) }}" class="w3-button w3-red w3-round-large">Delete</a>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

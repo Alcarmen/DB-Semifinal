@@ -1,0 +1,24 @@
+{% extends 'Item.html'%}	
+{%block content%}	
+		
+	<table class="w3-table-all w3-card-4 w3-animate-top">
+	<tr>
+		{% for h in header%}
+			<th>{{h | upper}}</th>
+		{%endfor%}
+	</tr>
+		{%for inventory in item %}
+			<tr>
+				{% for key,value in inventory.items() %}
+					{% if key != 'active'%}
+						<td>{{value | upper}} </td>
+					{% endif %}
+				{%endfor%}
+				<td>
+					<a href={{url_for("update_item", i_id=inventory.get("i_id"))}} class="w3-button w3-green w3-round-large">update</a>
+					<a href={{url_for("delete_item", i_id = inventory.get("i_id"))}} class="w3-button w3-red w3-round-large">delete</a>
+				</td>
+			</tr>
+		{%endfor%}
+	</table>
+{%endblock%}

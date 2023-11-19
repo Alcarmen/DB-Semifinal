@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} Alcarmen-BookStore</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='/CSS/ccs.css') }}">
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            padding: 10px;
+        }
+
+        nav a {
+			display:flex;
+			align-items:center;
+			background-color:#d64161; 
+            color: white;
+            font-size: 16px;
+			justify-content: center;
+			border: 3px ridge #d64161;
+            border-radius: 5px;
+            text-decoration: none;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+			width:100px;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        nav a:hover {
+            background-color:lightblue;
+            color: black;
+        }
+
+        nav a.active {
+            background-color: #04AA6D;
+            color: blue;
+        }
+		nav .icon{
+			font-size: 50px;
+			font-weight: 800;
+			letter-spacing:1px;
+			color: white;
+			background-color: gray;
+			border-radius: 5px;
+			display: flex; 
+			vertical-align: middle;
+            text-shadow: 1px 1px 1px #fff, -1px -1px 1px black, 1px -1px 1px black, 1px 1px 1px #fff;	
+		}
+        hr {
+            background-color: black;
+            width: 100%;
+            text-align: left;
+            margin: 0;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px; /* Adjust the margin as needed */
+        }
+		.search-bar {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px ridge #d64161;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            background-color: #d64161;
+            color: white;
+            border: 2px ridge #d64161;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 16px;
+        }
+		.search-button active{
+		    background-color: #04AA6D;
+            color: blue;
+		}
+        .search-button:hover {
+            background-color: orange;
+            color: black;
+        }
+
+		body {
+			background-color: rgb(255, 122, 89);
+			margin:0;
+		
+		}
+		
+    </style>
+</head>
+<body>
+	<hr>
+    <nav>
+		<div class="icon"><img src="https://preview.redd.it/drg9991dq9o61.jpg?width=640&crop=smart&auto=webp&s=ea04f9cea8b177cd7a6894cdb8bd2870b557412b" alt="logo" style="width:50px; height:50px;border-radius:30%;border:3px solid gray"><b style="color: black">Br</b>andon b<b style="color:#33CC00">ooK</b></div>
+        <a href="/">Home</a>
+        <a href="/Custom">Customer</a>
+        <a href="/Item">Item</a>
+        <div class="search-container" style="opacity: 0;">
+            <input type="text" class="search-bar" placeholder="Search...">
+            <button class="search-button">Search</button>
+        </div>
+    </nav>
+    <hr>
+	<br>
+	<h1 class="w3-animate-top w3-round-large;"style="font-family: Arial black, sans-serif;margin: 0 auto; width: 50%; text-align: center;font-style:Arial; display: flex; flex-direction: column; align-items: center; gap: 10px;border: 2px ridge black;background: lightblue;" > "Create Page" </h1>
+    <h1 class="w3-animate-top w3-round-large;"style="font-family: Arial black, sans-serif;margin: 0 auto; width: 50%; text-align: center;font-style:Arial; display: flex; flex-direction: column; align-items: center; gap: 10px;" > Input Details </h1>
+
+
+	<form method="post" style="margin: 0 auto; width: 50%; display: flex; flex-direction: column;border-radius: 10px;" class="w3-table-all w3-card-4 w3-animate-top">
+		<label style="display: flex; align-items: center;" for="c_name">ISBN:</label>
+			<input type="text" name="ISBN" placeholder="ISBN">
+		<label style="display: flex; align-items: center;" for="c_email">Title:</label>
+			<input type="text" name="title" placeholder="Title">
+		<label style="display: flex; align-items: center;" for="c_address">Author:</label>
+			<input type="text" name="author" placeholder="Author">
+        <label style="display: flex; align-items: center;" for="c_address">Genre:</label>
+			<input type="text" name="genre" placeholder="Genre">
+        <label style="display: flex; align-items: center;" for="c_address">Price:</label>
+			<input type="text" name="price" placeholder="₱0.00">
+        <label style="display: flex; align-items: center;" for="c_address">i_Type:</label>
+			<input type="text" name="i_type" placeholder="Type">
+		<br>
+		<button class="w3-button w3-green w3-round-small" style="display:flex;flex-direction:column;width:13%; margin-top: 10px;gap: 10px;border:2px ridge black; border-radius: 20px" type="submit">Submit</button>
+        <a href="/Item" class="w3-button w3-red w3-round-small" style="display:flex;flex-direction:column;width:13%; margin-top: 10px;gap: 10px;border:2px ridge black; border-radius: 20px" type="submit">Cancel</a>
+    </form>
+
+
+</body>
+</html>
