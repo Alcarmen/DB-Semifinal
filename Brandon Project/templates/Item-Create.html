@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %} Alcarmen-BookStore</title>
 	<link rel="stylesheet" href="{{ url_for('static',filename='/CSS/ccs.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/CSS/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         nav {
             display: flex;
@@ -98,7 +101,7 @@
 	<hr>
     <nav>
 		<div class="icon"><img src="https://preview.redd.it/drg9991dq9o61.jpg?width=640&crop=smart&auto=webp&s=ea04f9cea8b177cd7a6894cdb8bd2870b557412b" alt="logo" style="width:50px; height:50px;border-radius:30%;border:3px solid gray"><b style="color: black">Br</b>andon b<b style="color:#33CC00">ooK</b></div>
-        <a href="/">Home</a>
+        <a href="/Home">Home</a>
         <a href="/Custom">Customer</a>
         <a href="/Item">Item</a>
         <div class="search-container" style="opacity: 0;">
@@ -129,6 +132,26 @@
 		<button class="w3-button w3-green w3-round-small" style="display:flex;flex-direction:column;width:13%; margin-top: 10px;gap: 10px;border:2px ridge black; border-radius: 20px" type="submit">Submit</button>
         <a href="/Item" class="w3-button w3-red w3-round-small" style="display:flex;flex-direction:column;width:13%; margin-top: 10px;gap: 10px;border:2px ridge black; border-radius: 20px" type="submit">Cancel</a>
     </form>
+    <footer>
+        <div class="footercontainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-google-plus"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="footerNav">
+                <ul>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact us</a></li>
+                    <li><a href="">Our team</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </footer>
 
 
 </body>

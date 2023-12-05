@@ -5,14 +5,19 @@
 		<meta http-equiv="X-UA-Compatible" content="ie-edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<link rel="stylesheet" href="{{ url_for('static',filename='/CSS/ccs.css') }}">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/alol.min.css" integrity="sha512-xh60/CkQopOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonmyous" referrerpolicy="no-referrer"/>
+		<link rel="stylesheet" href="{{ url_for('static',filename='/CSS/style.css') }}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<title>{{ title | upper}}</title>
+
 	</head>
 	<body>
-		<div class ="w3-bar w3-blue w3-padding w3-container">
-			<h3>{{ title | upper }}</h3>
+
+		<div class="w3-bar w3-black w3-container w3-padding w3-card-2">
+			<h3>{{ title | upper}}</h3>
+			{% block menu %}
+			{% endblock%}
 		</div>
-		<div class="w3-container w3-padding">
+		<div class="w3-container  w3-padding">
 			{%block content%}
 			{%endblock%}
 		</div>
@@ -31,11 +36,10 @@
 						<li><a href="">About</a></li>
 						<li><a href="">Contact us</a></li>
 						<li><a href="">Our team</a></li>
-
+	
 					</ul>
 				</div>
-				<div class= "w3-center">Alcarmen, Brandon &copy; 2023</div>
-
+	
 			</div>
 		</footer>
 		

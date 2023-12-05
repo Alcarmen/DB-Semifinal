@@ -1,12 +1,50 @@
-from flask import Flask, render_template,request,url_for,redirect
+from flask import Flask, render_template,request,url_for,redirect,session,flash
 from dbhelper import *
 
 app = Flask(__name__)
-#app.config['SECRET KEY']= '696969BRANDON696969'
+app.secret_key= '696969BRANDON696969'
 
-@app.route('/')
-def home():
-    return render_template("Home.html")
+app.after_request
+def after_request(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
+	
+@app.route("/logout")
+def logout()->None:
+	if "username" in session:
+		session.pop("username")
+		flash("Logged Out")
+	return render_template("indexs.html",title="Welcome to Brandon's Book Store")
+
+@app.route("/")
+def main()->None:
+	return render_template("indexs.html",title="Welcome to Brandon's Book Store")
+
+
+@app.route('/home')
+def home()->None:
+    if "username" in session:
+        return render_template("Home.html")
+    else:
+        flash("Login Properly")
+        return render_template("index.html")
+
+
+@app.route("/login", methods=['POST', 'GET'])
+def login() -> None:
+    if request.method == "POST":
+        uname = request.form['username']
+        pword = request.form['password']
+        
+        # Set a static user validation
+        if uname == "admin" and pword == "123":
+            session['username'] = uname
+            return redirect(url_for("home"))
+        else:
+            flash("Invalid User")
+            return render_template("login.html", title="Login Page")
+    else:
+        return render_template("login.html", title="Login Page")
     
 @app.route('/Custom',methods=['GET','POST'])
 def Custom():

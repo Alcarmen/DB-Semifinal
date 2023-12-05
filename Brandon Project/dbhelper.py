@@ -67,4 +67,9 @@ def itemrecord(table:str,search_item)->list:
     sql:str = f"SELECT * FROM `{table}` WHERE active = 1 AND (ISBN LIKE '%{search_item}%' OR title LIKE '%{search_item}%' OR author LIKE '%{search_item}%' OR genre LIKE '%{search_item}%' OR price LIKE '%{search_item}%' OR i_type LIKE '%{search_item}%')"
     return getProcess(sql)
     
+def userlogin(table:str,**kwargs)->bool:
+	sql:str = ""
+	for key,value in kwargs.items():
+		sql = f"SELECT * FROM `{table}` WHERE `{key}` = '{value}'"
+	return getprocess(sql)
 

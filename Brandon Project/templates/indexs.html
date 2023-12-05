@@ -1,0 +1,21 @@
+{% extends 'bases.html' %}
+{% block menu %}
+		<a href="{{ url_for('login') }}" class="w3-bar-item w3-right w3-button"> &#10097; LOGIN</a>
+{% endblock%}
+{% block content %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages%}
+				<div class="w3-panel w3-amber w3-container w3-padding">{{ message }}</div>
+			{% endfor%}
+		{% endif%}
+	{% endwith%}
+	
+	<div class="w3-mobile w3-card-4 w3-round-xlarge w3-container w3-padding-16" style="width:40%;margin:auto">
+		<h3 class="w3-center">Welcome</h3>		
+		<hr>
+		<p>
+			I love boku no pico desu...
+		</p>
+	</div>
+{% endblock %}
