@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="ie-edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<link rel="stylesheet" href="{{ url_for('static',filename='/CSS/ccs.css') }}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/alol.min.css" integrity="sha512-xh60/CkQopOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonmyous" referrerpolicy="no-referrer"/>
 		<title>{{ title | upper}}</title>
 	</head>
 	<body>
@@ -16,6 +17,27 @@
 			{%endblock%}
 		</div>
 		<hr>
-		<div class= "w3-center">Alcarmen, Brandon &copy; 2023</div>
+		<footer>
+			<div class="footercontainer">
+				<div class="socialIcons">
+					<a href=""><i class="fa-brands fa-facebook"></i></a>
+					<a href=""><i class="fa-brands fa-instagram"></i></a>
+					<a href=""><i class="fa-brands fa-twitter"></i></a>
+					<a href=""><i class="fa-brands fa-google-plus"></i></a>
+					<a href=""><i class="fa-brands fa-youtube"></i></a>
+				</div>
+				<div class="footerNav">
+					<ul>
+						<li><a href="">About</a></li>
+						<li><a href="">Contact us</a></li>
+						<li><a href="">Our team</a></li>
+
+					</ul>
+				</div>
+				<div class= "w3-center">Alcarmen, Brandon &copy; 2023</div>
+
+			</div>
+		</footer>
+		
 	</body>
 </html>

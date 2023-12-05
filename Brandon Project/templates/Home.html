@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %} Alcarmen-BookStore</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='/CSS/ccs.css') }}">
+    <link rel="stylesheet" href="style.ccs">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             background-image: url("https://getwallpapers.com/wallpaper/full/4/3/5/165818.jpg");
@@ -143,6 +146,65 @@
             height: 100px; 
             margin: 0; 
         }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+
+        }
+        footer {
+            background-color: black;
+        }
+        .footercontainer{
+            width: 100%;
+            padding: 70px 30px 20px;
+
+        }
+        .socialIcons{
+            display: flex;
+            justify-content: center;
+
+        }
+        .socialIcons a{
+            text-decoration: none;
+            padding: 10px;
+            background-color: white;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        .socialIcons a i{
+            font-size: 2em;
+            color: black;
+            opacity: 0.9;
+        }
+        .socialIcons a:hover{
+            background-color: black;
+            transition: 0.5s;
+        }
+
+        .socialIcons a:hover i{
+            color: white;
+            transition: 0.5s;
+        }
+        .footerNav{
+            margin: 30px 0;
+        }
+        .footerNav ul{
+            display: flex;
+            justify-content: center;
+        }
+        .footerNav ul li a{
+            color: white;
+            margin: 20px;
+            text-decoration: none;
+            font-size: 1.3em;
+            opacity: 0.7;
+            transition: 0.5s;
+        }
+        .footerNav ul li a:hover{
+            opacity: 1;
+        }
+
     </style>
 </head>
 <body>
@@ -208,5 +270,26 @@
     <div class="content">
         {% block content %} {% endblock %}
     </div>
+    <footer>
+        <div class="footercontainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-google-plus"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="footerNav">
+                <ul>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact us</a></li>
+                    <li><a href="">Our team</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+    <div class= "w3-center"><b>Alcarmen, Brandon &copy; 2023</b></div>
 </body>
 </html>
